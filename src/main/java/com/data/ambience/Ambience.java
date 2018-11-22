@@ -14,7 +14,7 @@ import java.util.HashSet;
 
 public class Ambience {
 
-    public static HashSet<Appliance> createAppliances() {
+    public static HashSet<Appliance> createAppliances(Observer observer) {
         HashSet<Appliance> set = new HashSet<>();
 
         set.add(new VaacumCleaner("Пылесос", 2000, Locations.KITCHEN, Affliation.CLEANING));
@@ -31,12 +31,10 @@ public class Ambience {
         set.add(new Drill("Дрель", 1000, Locations.LOUNGE, Affliation.WORK));
         set.add(new Screwdriver("Шуруповёрт", 350, Locations.LOUNGE, Affliation.WORK));
 
-        Observer defaultObserver = new Electricity();
         for (Appliance appliance : set) {
-            appliance.addObserver(defaultObserver);
+            appliance.addObserver(observer);
         }
         return set;
     }
-
 
 }

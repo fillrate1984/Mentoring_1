@@ -14,12 +14,7 @@ public class Electricity implements Observer {
     private static int currentLoad = 0;
     private Set<Appliance> workingAppliances = new HashSet<>();
 
-    @SuppressWarnings("unused")
-    public static void setMaximumLoad(int maximumLoad) {
-        Electricity.maximumLoad = maximumLoad;
-    }
 
-    @SuppressWarnings("unused")
     public static int getMaximumLoad() {
         return maximumLoad;
     }
@@ -44,6 +39,7 @@ public class Electricity implements Observer {
         System.out.println("Current load: " + currentLoad);
     }
 
+    @SuppressWarnings("unused")
     public void removeApplianceFromNet(Appliance appliance) {
         workingAppliances.remove(appliance);
         currentLoad -= appliance.getPower();

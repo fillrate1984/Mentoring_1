@@ -79,4 +79,13 @@ public abstract class Appliance implements Observable {
 
     public abstract void use();
 
+    @Override
+    public abstract void addObserver(Observer observer);
+
+    @Override
+    public abstract void removeObserver(Observer observer);
+
+    @Override
+    public abstract void notifyAllObservers();
+
 }
