@@ -1,5 +1,7 @@
 package com.data.appliances;
 
+import com.annotations.ProdCode;
+import com.annotations.ThisCodeSmells;
 import com.data.ambience.Electricity;
 import com.data.enums.Affliation;
 import com.data.exc.OutOfElectricityException;
@@ -9,15 +11,20 @@ import com.data.enums.Locations;
 
 import java.util.ArrayList;
 
+@ThisCodeSmells(name = "Fill")
 public abstract class Appliance implements Observable {
 
     protected String name;
     protected int power;
     protected boolean isOn;
     protected Locations location;
+
+    @ThisCodeSmells(name = "Lucy")
+    @ThisCodeSmells(name = "Sergey")
     protected Affliation affliation;
     protected ArrayList<Observer> observers = new ArrayList<>();
 
+    @ThisCodeSmells(name = "Andrey")
     public Appliance(String name, int power, Locations location, Affliation affliation) {
         this.name = name;
         this.power = power;
@@ -26,6 +33,8 @@ public abstract class Appliance implements Observable {
     }
 
 
+    @ThisCodeSmells(name = "Denis")
+    @ThisCodeSmells(name = "Wowa")
     public Affliation getAffliation() {
         return affliation;
     }

@@ -1,5 +1,6 @@
 package com.data.ambience;
 
+import com.annotations.ProdCode;
 import com.data.ambience.Electricity;
 import com.data.appliances.Appliance;
 import com.data.enums.Affliation;
@@ -50,8 +51,11 @@ public class ApplianceService {
         appliance.turnOff();
     }
 
+
+    @ProdCode
     public void turnOnElectricity() {
         Electricity.electricitySwitcher(true);
+        System.out.println("Electricity is on now");
     }
 
     public void turnOffElectricity() {

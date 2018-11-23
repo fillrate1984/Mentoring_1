@@ -1,5 +1,6 @@
 package com.data.ambience;
 
+import com.annotations.ProdCode;
 import com.data.appliances.Appliance;
 import com.data.appliances.cleaning.VaacumCleaner;
 import com.data.appliances.information.*;
@@ -14,6 +15,7 @@ import java.util.HashSet;
 
 public class Ambience {
 
+    @ProdCode
     public static HashSet<Appliance> createAppliances(Observer observer) {
         HashSet<Appliance> set = new HashSet<>();
 

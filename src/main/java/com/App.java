@@ -1,5 +1,8 @@
 package com;
 
+import com.annotations.handlers.ProdRunner;
+import com.annotations.handlers.ThisCodeSmellsHandler;
+import com.data.ambience.Ambience;
 import com.data.ambience.Electricity;
 import com.data.appliances.Appliance;
 import com.data.ambience.ApplianceService;
@@ -34,13 +37,14 @@ public class App {
             }
         }*/
 
-        describeApplianceClasses();
+        ProdRunner.run(new ApplianceService(new HashSet<>()));
 
     }
 
+    @SuppressWarnings("unchecked")
     public static HashSet<Appliance> initAppliances(Observer observer) {
         HashSet<Appliance> appliances = new HashSet<>();
-        Appliance newAppliance = null;
+        Appliance newAppliance;
         Class[] params = new Class[]{String.class, int.class, Locations.class, Affliation.class};
 
         try {
@@ -92,9 +96,9 @@ public class App {
 
             for (Field field : fields) {
                 String fieldData = field.toString();
-                String fielddName = fieldData.substring(fieldData.lastIndexOf('.') + 1);
-                String fieldAcces = fieldData.substring(0, fieldData.indexOf(' '));
-                System.out.println("Field: " + fieldAcces + " " + fielddName);
+                String fieldName = fieldData.substring(fieldData.lastIndexOf('.') + 1);
+                String fieldAccess = fieldData.substring(0, fieldData.indexOf(' '));
+                System.out.println("Field: " + fieldAccess + " " + fieldName);
             }
 
             for (Method method : methods) {
